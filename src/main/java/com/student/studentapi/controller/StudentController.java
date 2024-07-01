@@ -1,4 +1,3 @@
-
 package com.student.studentapi.controller;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.student.studentapi.Entity.StudentEntity;
+import com.student.studentapi.dto.StudentDTO;
 import com.student.studentapi.service.StudentService;
 
 @RestController
@@ -26,26 +25,24 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping
-    public List<StudentEntity> getAllStudents() {
+    public List<StudentDTO> getAllStudents() {
         return studentService.getAllStudents();
     }
 
     @GetMapping("/{id}")
-    public StudentEntity getStudentById(@PathVariable Long id) {
+    public StudentDTO getStudentById(@PathVariable Long id) {
         return studentService.getStudentById(id);
     }
 
     @PostMapping
-    public StudentEntity createStudent(@RequestBody StudentEntity student) {
+    public StudentDTO createStudent(@RequestBody StudentDTO student) {
         return studentService.saveStudent(student);
     }
 
     @PutMapping("/{id}")
-    public StudentEntity updateStudent(@PathVariable Long id, @RequestBody StudentEntity studentDetails) {
-        StudentEntity student = studentService.getStudentById(id);
-        student.setName(studentDetails.getName());
-        student.setEmail(studentDetails.getEmail());
-        return studentService.saveStudent(student);
+    public StudentDTO updateStudent(@PathVariable Long id, @RequestBody StudentDTO studentDetails) {
+        studentDetails.setId(id);
+        return studentService.saveStudent(studentDetails);
     }
 
     @DeleteMapping("/{id}")
@@ -54,8 +51,8 @@ public class StudentController {
     }
 
     @PatchMapping("/{id}")
-    public StudentEntity updateStudentEmail(@PathVariable Long id, @RequestBody Map<String, String> updates) {
-        StudentEntity student = studentService.getStudentById(id);
+    public StudentDTO updateStudentEmail(@PathVariable Long id, @RequestBody Map<String, String> updates) {
+        StudentDTO student = studentService.getStudentById(id);
         if (updates.containsKey("email")) {
             student.setEmail(updates.get("email"));
         }
