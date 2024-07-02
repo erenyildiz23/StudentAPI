@@ -1,6 +1,6 @@
 # StudentAPI with React.js Client
 
-This project is a full-stack web application that combines a Spring Boot backend with a React.js frontend. The application allows for managing student information, including creating, reading, updating, and deleting student records. 
+This project is a full-stack web application for my Internship that combines a Spring Boot backend with a React.js frontend. The application allows for managing student information, including creating, reading, updating, and deleting student records. 
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
@@ -83,11 +83,66 @@ To run the Spring Boot application, navigate to the `studentapi` directory and u
 
 ```sh
 ./mvnw spring-boot:run
+ ```
+### Frontend
+
+To start the React application, navigate to the `student-api-client` directory and use the following command:
+
+```sh
+npm start
+ ```
+## API Endpoints
+
+The following endpoints are available in the Student API:
+
+- **GET /api/students:** Retrieve a list of all students.
+- **GET /api/students/{id}:** Retrieve a student by ID.
+- **POST /api/students:** Create a new student.
+- **PUT /api/students/{id}:** Update a student by ID.
+- **DELETE /api/students/{id}:** Delete a student by ID.
+- **PATCH /api/students/{id}:** Update specific fields of a student by ID.
 
 
+## Project Structure
+
+```plaintext
+StudentAPI/
+│
+├── studentapi/                 # Spring Boot backend
+│   ├── src/main/java/com/student/studentapi/
+│   │   ├── controller/         # REST controllers
+│   │   ├── dto/                # Data Transfer Objects
+│   │   ├── entity/             # JPA entities
+│   │   ├── exception/          # Exception handling
+│   │   ├── repo/               # Repositories
+│   │   ├── security/           # Security configuration
+│   │   ├── service/            # Services
+│   │   └── StudentapiApplication.java  # Main Spring Boot application
+│   ├── src/main/resources/
+│   │   └── application.properties
+│   └── pom.xml                 # Maven configuration
+│
+└── student-api-client/         # React.js frontend
+    ├── public/
     └── src/
         ├── components/         # React components
         ├── App.js              # Main React component
         └── index.js            # React entry point
     ├── package.json            # npm configuration
     └── .gitignore
+ ```
+## Contributing
+
+If you would like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Create a new Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
