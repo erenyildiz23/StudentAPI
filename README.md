@@ -84,26 +84,7 @@ To run the Spring Boot application, navigate to the `studentapi` directory and u
 ```sh
 ./mvnw spring-boot:run
 
-##Project Structure##
 
-StudentAPI/
-│
-├── studentapi/                 # Spring Boot backend
-│   ├── src/main/java/com/student/studentapi/
-│   │   ├── controller/         # REST controllers
-│   │   ├── dto/                # Data Transfer Objects
-│   │   ├── entity/             # JPA entities
-│   │   ├── exception/          # Exception handling
-│   │   ├── repo/               # Repositories
-│   │   ├── security/           # Security configuration
-│   │   ├── service/            # Services
-│   │   └── StudentapiApplication.java  # Main Spring Boot application
-│   ├── src/main/resources/
-│   │   └── application.properties
-│   └── pom.xml                 # Maven configuration
-│
-└── student-api-client/         # React.js frontend
-    ├── public/
     └── src/
         ├── components/         # React components
         ├── App.js              # Main React component
